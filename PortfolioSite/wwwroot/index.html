@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
-    <header>
-        <h1>emerson</h1>
-        <p>Cloud Application Developer | Passionate About Problem Solving & Tech Innovation</p>
-        <a href="#portfolio">Explore My Work</a>
-        <a href="#resume">View Resume</a>
+    <header id="hero" style="background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('./images/portfolio_site.jpg') no-repeat center center / cover;">
+        <div class="hero-content" data-aos="fade-in">
+            <h1>emerson</h1>
+            <p>Cloud Application Developer | Passionate About Problem Solving & Tech Innovation</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn-primary">Explore My Work</a>
+                <a href="#resume" class="btn-secondary">View Resume</a>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -20,9 +24,18 @@
             <h2>About Me</h2>
             <p>Veteran turned Cloud Application Developer, passionate about meaningful projects.</p>
         </section>
-        <section id="portfolio">
+        <section id="portfolio" data-aos="fade-up">
             <h2>Portfolio</h2>
-            <!-- Add your projects here -->
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="openModal('mod1')" data-aos="zoom-in">
+                    <img src="./images/hug.jpg" alt="Game Mod">
+                    <h3>Game Mod</h3>
+                </div>
+                <div class="portfolio-item" onclick="openModal('mod2')" data-aos="zoom-in">
+                    <img src="./images/ccry.jpg" alt="Console Mod">
+                    <h3>Console Mod</h3>
+                </div>
+            </div>
         </section>
         <section id="resume">
             <h2>Resume</h2>
@@ -38,6 +51,28 @@
         </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>AOS.init();</script>
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration in milliseconds
+            easing: 'ease-in-out', // Easing style
+            once: true, // Whether animation should happen only once
+        });
+    </script>
+        <div id="mod1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('mod1')">&times;</span>
+                <h2>Game Mod</h2>
+                <p>This mod was created using an API and under 30 lines of code. It showcases X, Y, and Z skills.</p>
+                <img src="./images/knock_knock.jpg" alt="Game Mod">
+            </div>
+        </div>
+        <div id="mod1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('mod2')">&times;</span>
+                <h2>console Mod</h2>
+                <p>this steamdeck OS swap.</p>
+                <img src="./images/coffee.png" alt="console Mod">
+            </div>
+        </div>
 </body>
 </html>
