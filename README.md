@@ -1,3 +1,3 @@
 # portfolio_site
 
-https://www.emrsn.dev/
+https://emrsn.dev/
