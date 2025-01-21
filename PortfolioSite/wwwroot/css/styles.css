@@ -3,13 +3,29 @@ body {
 }
 
 html, body {
-    background-color: #121212; /* Dark gray */
+    font-family: 'Inter', sans-serif; /* Use Inter, fallback to sans-serif */
+    background-color: transparent;  /*Dark gray */
     color: #d1d1d1; /* Light gray text */
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
-    position: relative;
     max-width: 100%;
+}
+
+/* General Card Style for Sections */
+main section {
+    max-width: 800px; /* Limit width to create a bubble effect */
+    margin: 50px auto; /* Center the sections */
+    padding: 30px;
+    background: #1e1e1e;
+    border-radius: 15px; /* Rounded corners */
+    position: relative;
+    z-index: 1;
+    background: #121212; /* Slightly lighter gray for contrast */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a floating look */
+    text-align: center;
+
+
 }
 a {
     color: #ff7844; /* Accent orange */
@@ -22,25 +38,33 @@ a {
 
 /* Hero Section */
 #hero {
-    /* Full viewport height */
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #d1d1d1;
-    /* Background image only */
-    background: url('../images/portfolio_site.jpg') no-repeat center center;
-    background-size: cover;
-    /* Ensure no extra overflow */
-    overflow: hidden;
     position: relative;
+    overflow: hidden; /* Ensure no extra scroll issues */
 }
 
+    #hero::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../images/portfolio_site.jpg') no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed; /* Parallax effect */
+        z-index: -1; /* Place behind all content */
+        filter: saturate(50%); /* Adjust saturation */
+    }
+
 .hero-content {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
+    position: relative;
+    z-index: 1; /* Ensure content sits above the background */
 }
 
 .profile-pic {
@@ -66,11 +90,13 @@ button {
         transform: scale(1.05);
     }
 
+
+
 /* Portfolio Section */
 #portfolio {
     padding: 50px 20px;
     text-align: center;
-    background: #1a1f2a;
+    background: #1e1e1e; /* Slightly lighter gray */
 }
 
 .portfolio-grid {
@@ -125,7 +151,7 @@ button {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.8);
-    z-index: 10;
+    z-index: 0;
     justify-content: center;
     align-items: center;
 }
@@ -153,15 +179,15 @@ button {
 #about {
     padding: 50px 20px;
     text-align: center;
-    background: #121212;
     color: #d1d1d1;
+    background: #121212; /* Dark gray */
 }
 
 /* Contact */
 #contact {
     padding: 50px 20px;
     text-align: center;
-    background: #1a1f2a;
+    background: #121212; /* Match the dark gray of #about */
     color: #d1d1d1;
 }
 
@@ -175,4 +201,3 @@ button {
         #contact a:hover {
             color: #3a7ca5;
         }
-
