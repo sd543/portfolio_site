@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
+    <script src="js/scripts.js"></script>
     <header id="hero">
         <div class="hero-content">
             <img src="./images/me_bora.jpg" alt="Your Photo" class="profile-pic">
@@ -32,18 +33,74 @@
         <section id="portfolio" data-aos="fade-up" data-aos-duration="1000">
             <h2>My Work</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="./images/placeholder.png" alt="Game Mod">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item" onclick="openModal('mod1')">
+                    <img src="./images/ins_promo.jpg" alt="Game Mod">
                     <div class="overlay">
                         <h3>Game Mod</h3>
                         <p>Click to see more details!</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="./images/placeholder.png" alt="Console Mod">
+
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item" onclick="openModal('mod2')">
+                    <img src="./images/sd_promo.png" alt="Console Mod">
                     <div class="overlay">
                         <h3>Console Mod</h3>
                         <p>Click to see more details!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modals -->
+            <div class="modal" id="mod1">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('mod1')">&times;</span>
+                    <div class="modal-layout">
+                        <!-- Left Section: Gallery Thumbnails -->
+                        <div class="modal-gallery">
+                            <img src="./images/ins_bothcards.png" alt="Gallery Image 1" onclick="setMainImage('./images/ins_bothcards.png', 'mod1')">
+                            <img src="./images/ins_bugman.jpg" alt="Gallery Image 2" onclick="setMainImage('./images/ins_bugman.jpg', 'mod1')">
+                            <img src="./images/ins_mssa.jpg" alt="Gallery Image 3" onclick="setMainImage('./images/ins_mssa.jpg', 'mod1')">
+                        </div>
+
+                        <!-- Center Section: Main Image -->
+                        <div class="modal-main-image">
+                            <img class="main-image" src="./images/ins_bothcards.png" alt="Main Image">
+                        </div>
+
+                        <!-- Right Section: Description -->
+                        <div class="modal-description">
+                            <h2>Game Mod</h2>
+                            <p>
+                                This is a detailed description of the project, including the tools used, challenges faced, and the final outcome.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="mod2">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('mod2')">&times;</span>
+                    <div class="modal-layout">
+                        <!-- Left: Gallery -->
+                        <div class="modal-gallery">
+                            <img src="./images/sd_steamOS.jpg" alt="Gallery Image 1" onclick="setMainImage('./images/sd_steamOS.jpg', 'mod2')">
+                            <img src="./images/sd_bm.jpg" alt="Gallery Image 2" onclick="setMainImage('./images/sd_bm.jpg', 'mod2')">
+                            <img src="./images/sd_win11.jpg" alt="Gallery Image 3" onclick="setMainImage('./images/sd_win11.jpg', 'mod2')">
+                        </div>
+                        <!-- Center: Main Image -->
+                        <div class="modal-main-image">
+                            <img class="main-image" src="./images/gallery1.jpg" alt="Main Image">
+                        </div>
+                        <!-- Right: Description -->
+                        <div class="modal-description">
+                            <h2>Console Mod</h2>
+                            <p>
+                                This is a detailed description of the console modification project. It includes details about the OS swap, customization, and improvements.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,21 +122,5 @@
             once: true, // Whether animation should happen only once
         });
     </script>
-    <div id="mod1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('mod1')">&times;</span>
-            <h2>Game Mod</h2>
-            <p>This mod was created using an API and under 30 lines of code. It showcases X, Y, and Z skills.</p>
-            <img src="./images/knock_knock.jpg" alt="Game Mod">
-        </div>
-    </div>
-    <div id="mod2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('mod2')">&times;</span>
-            <h2>console Mod</h2>
-            <p>this steamdeck OS swap.</p>
-            <img src="./images/coffee.png" alt="console Mod">
-        </div>
-    </div>
 </body>
 </html>

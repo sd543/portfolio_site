@@ -4,7 +4,7 @@ body {
 
 html, body {
     font-family: 'Inter', sans-serif; /* Use Inter, fallback to sans-serif */
-    background-color: transparent;  /*Dark gray */
+    background-color: transparent; /*Dark gray */
     color: #d1d1d1; /* Light gray text */
     scroll-behavior: smooth;
     margin: 0;
@@ -24,9 +24,8 @@ main section {
     background: #121212; /* Slightly lighter gray for contrast */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for a floating look */
     text-align: center;
-
-
 }
+
 a {
     color: #ff7844; /* Accent orange */
     text-decoration: none;
@@ -92,18 +91,14 @@ button {
     }
 
 
-
-/* Portfolio Section */
-#portfolio {
-    padding: 50px 20px;
-    text-align: center;
-    background: #1e1e1e; /* Slightly lighter gray */
-}
-
+/* Portfolio Item Styles */
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Wrap items to next row if needed */
+    gap: 20px; /* Space between items */
+    justify-content: center; /* Center them horizontally */
+    margin: 20px auto; /* Optional: some spacing around the grid */
+    max-width: 1000px; /* Optional: limit overall width */
 }
 
 .portfolio-item {
@@ -111,6 +106,7 @@ button {
     overflow: hidden;
     border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
     .portfolio-item img {
@@ -121,29 +117,31 @@ button {
     }
 
     .portfolio-item:hover img {
-        transform: scale(1.1);
+        transform: scale(1.1); /* Zoom effect */
     }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+    /* Overlay Text */
+    .portfolio-item .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
 
-.portfolio-item:hover .overlay {
-    opacity: 1;
-}
-/* Modals */
+    .portfolio-item:hover .overlay {
+        opacity: 1;
+    }
+
+/* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
     position: fixed;
@@ -151,29 +149,69 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    z-index: 10;
     justify-content: center;
     align-items: center;
 }
 
+    .modal.show {
+        display: flex; /* Flex layout to center content */
+    }
+
 .modal-content {
-    background: #1a1f2a;
-    padding: 20px;
+    background: #1e1e1e; /* Dark grey */
     border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-    color: #d1d1d1;
+    width: 80%; /* Large rectangle */
+    max-width: 1200px;
+    height: 80vh; /* Covers a significant portion of the screen */
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* 3 sections */
+    gap: 20px;
+    padding: 20px;
 }
 
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #ff7844;
-    font-size: 24px;
+/* Left Section: Gallery Thumbnails (Revised) */
+.modal-gallery img {
+    /* Thumbnails up to 200px wide */
+    max-width: 200px;
+    /* Maintain 16:9 aspect ratio in modern browsers */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
+
+.modal-gallery img:hover {
+    transform: scale(1.1); /* Zoom on hover */
+}
+
+/* Center Section: Main Image (Revised) */
+.modal-main-image img {
+    /* Don’t exceed 600px in width */
+    max-width: 600px;
+    /* Maintain 16:9 aspect ratio */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    /* Fill container up to max-width, then scale down if needed */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+/* Right Section: Description */
+.modal-description {
+    color: #d1d1d1;
+    text-align: left;
+}
+
+    .modal-description h2 {
+        color: #ff7844; /* Accent color */
+    }
+
+    .modal-description p {
+        line-height: 1.6;
+    }
 
 
 /* About Me */
