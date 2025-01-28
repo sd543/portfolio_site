@@ -162,15 +162,23 @@ button {
 .modal-content {
     background: #1e1e1e; /* Dark grey */
     border-radius: 10px;
-    width: 80%; /* Large rectangle */
-    max-width: 1200px;
+    width: 100%; /* Large rectangle */
+    max-width: 2000px;
     height: 80vh; /* Covers a significant portion of the screen */
-    display: grid;
     grid-template-columns: 1fr 2fr 1fr; /* 3 sections */
     gap: 20px;
     padding: 20px;
 }
-
+/* Layout container inside each modal */
+.modal-layout {
+    display: grid;
+    /* Make 3 columns: left (1fr), center (2fr), right (1fr) */
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px; /* Space between columns */
+    width: 100%; /* Fill the modal-content width */
+    height: auto; /* Optionally let it stretch the full height if you like */
+    box-sizing: border-box; /* Ensure padding doesn't shrink columns */
+}
 /* Left Section: Gallery Thumbnails (Revised) */
 .modal-gallery img {
     /* Thumbnails up to 200px wide */
@@ -190,7 +198,7 @@ button {
 /* Center Section: Main Image (Revised) */
 .modal-main-image img {
     /* Don’t exceed 600px in width */
-    max-width: 600px;
+    max-width: 1200px;
     /* Maintain 16:9 aspect ratio */
     aspect-ratio: 16 / 9;
     object-fit: cover;
